@@ -110,21 +110,21 @@ function calculate() {
             newResult = inputValue;
     }
     
-    // Update history with the complete calculation
+    
     previousInput += currentInput + ' = ' + newResult;
     updateHistory();
     
-    // Update result and display
+   
     result = newResult;
     currentInput = newResult.toString();
     updateDisplay();
     
-    // Reset for next calculation
+   
     waitingForOperand = true;
     calculationOperator = '';
 }
 
-// Clear all entries and reset calculator
+
 function clearAll() {
     currentInput = '0';
     previousInput = '';
@@ -135,14 +135,14 @@ function clearAll() {
     updateHistory();
 }
 
-// Clear current entry only
+
 function clearEntry() {
     currentInput = '0';
     waitingForOperand = false;
     updateDisplay();
 }
 
-// Calculate square root
+
 function calculateSquareRoot() {
     const inputValue = parseFloat(currentInput);
     
@@ -160,7 +160,7 @@ function calculateSquareRoot() {
     waitingForOperand = true;
 }
 
-// Calculate square
+
 function calculateSquare() {
     const inputValue = parseFloat(currentInput);
     previousInput = '(' + currentInput + ')²';
@@ -170,7 +170,7 @@ function calculateSquare() {
     waitingForOperand = true;
 }
 
-// Calculate cube
+
 function calculateCube() {
     const inputValue = parseFloat(currentInput);
     previousInput = '(' + currentInput + ')³';
@@ -180,7 +180,7 @@ function calculateCube() {
     waitingForOperand = true;
 }
 
-// Backspace function
+
 function backspace() {
     if (currentInput.length > 1) {
         currentInput = currentInput.slice(0, -1);
@@ -190,7 +190,7 @@ function backspace() {
     updateDisplay();
 }
 
-// Memory functions
+
 function clearMemory() {
     memory = 0;
 }
@@ -209,18 +209,18 @@ function subtractFromMemory() {
     memory -= parseFloat(currentInput);
 }
 
-// Initialize display
+
 updateDisplay();
 
-// Add keyboard support
+
 document.addEventListener('keydown', function(event) {
     const key = event.key;
     
-    // Numbers
+    
     if (/^[0-9]$/.test(key)) {
         appendNumber(parseInt(key));
     }
-    // Operators
+    
     else if (key === '+') {
         appendOperator('+');
     }
@@ -239,19 +239,19 @@ document.addEventListener('keydown', function(event) {
     else if (key === '^') {
         appendOperator('**');
     }
-    // Decimal
+   
     else if (key === '.') {
         appendDecimal();
     }
-    // Calculate
+    
     else if (key === '=' || key === 'Enter') {
         calculate();
     }
-    // Clear
+
     else if (key === 'Escape') {
         clearAll();
     }
-    // Backspace
+
     else if (key === 'Backspace') {
         backspace();
     }
