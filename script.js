@@ -1,4 +1,4 @@
-// Variables to store calculator state
+
 let currentInput = '0';
 let previousInput = '';
 let calculationOperator = '';
@@ -6,21 +6,21 @@ let result = null;
 let memory = 0;
 let waitingForOperand = false;
 
-// DOM elements
+
 const display = document.getElementById('display');
 const history = document.getElementById('history');
 
-// Update the display
+
 function updateDisplay() {
     display.textContent = currentInput;
 }
 
-// Update the history display
+
 function updateHistory() {
     history.textContent = previousInput;
 }
 
-// Append a number to the current input
+
 function appendNumber(number) {
     if (waitingForOperand) {
         currentInput = number.toString();
@@ -31,7 +31,7 @@ function appendNumber(number) {
     updateDisplay();
 }
 
-// Append a decimal point
+
 function appendDecimal() {
     if (waitingForOperand) {
         currentInput = '0.';
@@ -42,7 +42,7 @@ function appendDecimal() {
     updateDisplay();
 }
 
-// Handle operators
+
 function appendOperator(operator) {
     const inputValue = parseFloat(currentInput);
     
@@ -58,7 +58,7 @@ function appendOperator(operator) {
     updateHistory();
 }
 
-// Get the display symbol for operators
+
 function getOperatorSymbol(operator) {
     switch(operator) {
         case '+': return '+';
@@ -71,7 +71,6 @@ function getOperatorSymbol(operator) {
     }
 }
 
-// Calculate the result
 function calculate() {
     const inputValue = parseFloat(currentInput);
     
