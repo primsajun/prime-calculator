@@ -84,7 +84,7 @@ body {
     background-color: #6c757d;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 400px) {
     .calculator-container {
         max-width: 100%;
